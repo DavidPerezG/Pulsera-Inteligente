@@ -11,12 +11,12 @@ const LocationScreen = () => {
   useFocusEffect(
     React.useCallback(() => {
       setPosition(null);
-      encontrarLocación();
+      encontrarLocacion();
       console.log('los huevos de pascua de san andreas en particular, tienen la facultad de ser, obscuros, y muy, tetricos. *tin*')
     },[])
   );
 
-    async function encontrarLocación(){
+    async function encontrarLocacion(){
       setPosition(null);
       let { status } = await Location.requestForegroundPermissionsAsync();
       if (status !== 'granted') {
@@ -55,7 +55,7 @@ const LocationScreen = () => {
               description='This is a description'
               coordinate={{ latitude: position.coords.latitude, longitude: position.coords.longitude }} />
           </MapView>
-            <TouchableOpacity style={styles.buttonCallout} onPress={()=> encontrarLocación()}>
+            <TouchableOpacity style={styles.buttonCallout} onPress={()=> encontrarLocacion()}>
               <Text>Actualizar Ubicación</Text>
             </TouchableOpacity></>
         ):

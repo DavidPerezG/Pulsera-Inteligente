@@ -4,7 +4,7 @@ import styled from 'styled-components/native';
 import createGlobalStyle from 'styled-components/native';
 import 'react-native-gesture-handler';
 import * as React from 'react';
-import BottomNavigator from './src/components/BottomNavigator';
+import BottomNavigator from './src/screens/BottomNavigator';
 import { NavigationContainer } from '@react-navigation/native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import {

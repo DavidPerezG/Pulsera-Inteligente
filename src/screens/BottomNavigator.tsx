@@ -10,6 +10,9 @@ import { colors } from '../utils/colors';
 import HomeScreen from './HomeScreen';
 import LocationScreen from './LocationScreen';
 import ConfigScreen from './ConfigScreen';
+import ParametroCorazon from './ParametroCorazon';
+import ParametroOxigeno from './ParametroOxigeno';
+import ParametroEdad from './ParametroEdad';
 
 const Tab = createBottomTabNavigator();
 
@@ -44,7 +47,7 @@ const BottomNavigator = () => {
       }}
     >
 
-      <Tab.Screen name="Home" component={HomeScreen}
+      <Tab.Screen name="Home" component={ParametroOxigeno}
         options={{
           tabBarLabel: 'Inicio',
           tabBarIcon: ({ color, size, focused }) => (

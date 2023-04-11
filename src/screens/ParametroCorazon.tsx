@@ -11,9 +11,9 @@ const ParametroCorazon = () => {
   return (
     <View>
       <ParameterHeader headerTitle={'Parámetros - corazón'} />
-      <ParameterContainer secondaryEnabled={false} iconName='heart' containerText='Pulsaciones máximas' />
+      <ParameterContainer color='red' iconName='heart' containerText='Pulsaciones máximas' />
       <Input />
-      <ParameterContainer secondaryEnabled={false} iconName='heart' containerText='Pulsaciones minimas' />
+      <ParameterContainer color='red' iconName='heart' containerText='Pulsaciones minimas' />
       <Input />
       <ConfirmButton />
     </View>

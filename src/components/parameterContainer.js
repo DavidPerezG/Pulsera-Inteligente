@@ -1,18 +1,13 @@
 import React from 'react'
 
-import Icon from 'react-native-vector-icons/AntDesign';
-import IconSecondary from 'react-native-vector-icons/Entypo';
+import Icon from 'react-native-vector-icons/Entypo';
 import styled from 'styled-components'
 
-const ParameterContainer = ({iconName, containerText, secondaryEnabled}) => {
+const ParameterContainer = ({iconName, containerText, color}) => {
 
   return (
     <Container>
-      {
-        secondaryEnabled ? (
-          <Icon name={iconName} size={24} color={'red'} />
-        ) : <IconSecondary name={iconName} size={24} color={'red'} />
-      }
+        <Icon name={iconName} size={24} color={color} />
       <Description>{containerText}</Description>
     </Container>
   )

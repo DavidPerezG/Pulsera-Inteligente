@@ -11,9 +11,9 @@ const ParametroOxigeno = () => {
   return (
     <View>
       <ParameterHeader headerTitle={'Parámetros - oxígeno'} />
-      <ParameterContainer secondaryEnabled={true} iconName='drop' containerText='Valor máximo' />
+      <ParameterContainer color='red' iconName='drop' containerText='Valor máximo' />
       <Input />
-      <ParameterContainer secondaryEnabled={true} iconName='drop' containerText='Valor minimo' />
+      <ParameterContainer color='red' iconName='drop' containerText='Valor minimo' />
       <Input />
       <ConfirmButton />
     </View>

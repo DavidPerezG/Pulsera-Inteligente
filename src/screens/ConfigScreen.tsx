@@ -4,6 +4,7 @@ import styled from 'styled-components/native';
 import { colors } from '../utils/colors';
 import Icon from 'react-native-vector-icons/AntDesign';
 
+
 const ConfigScreen = () => {
   return (
     <View>

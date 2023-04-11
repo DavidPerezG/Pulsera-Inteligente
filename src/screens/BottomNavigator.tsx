@@ -47,11 +47,11 @@ const BottomNavigator = () => {
       }}
     >
 
-      <Tab.Screen name="Home" component={ParametroOxigeno}
+      <Tab.Screen name="HomeScreen" component={HomeScreen}
         options={{
           tabBarLabel: 'Inicio',
           tabBarIcon: ({ color, size, focused }) => (
-            <TouchableOpacity onPress={() => { navigation.navigate('Home') }}>
+            <TouchableOpacity onPress={() => { navigation.navigate('HomeScreen') }}>
               <Icon name='home' size={30} color={focused ? colors.blueDark : 'black'} />
 
             </TouchableOpacity>

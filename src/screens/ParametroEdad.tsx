@@ -11,10 +11,11 @@ const ParametroEdad = () => {
   return (
     <View>
       <ParameterHeader headerTitle={'Parámetros - oxígeno'} />
-      <ParameterContainer secondaryEnabled={true} iconName='drop' containerText='Valor máximo' />
+      <ParameterContainer color='gray' iconName='calendar' containerText='Edad del usuario' />
       <Input />
       <ConfirmButton />
     </View>
+
   )
 }
 

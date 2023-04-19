@@ -7,6 +7,7 @@ import * as React from 'react';
 import BottomNavigator from './src/screens/BottomNavigator';
 import { NavigationContainer } from '@react-navigation/native';
 import { SafeAreaView } from 'react-native-safe-area-context';
+import Toast from 'react-native-toast-message';
 import {
   useFonts,
   Lato_400Regular
@@ -22,14 +23,18 @@ export default function App() {
     return null;
   } else {
     return (
+      <>
+        <NavigationContainer>
+          <SafeAreaView>
+            <AppComponent>
+              <BottomNavigator />
+            </AppComponent>
+          </SafeAreaView>
+        </NavigationContainer>
+        <Toast />
 
-      <NavigationContainer>
-        <SafeAreaView>
-          <AppComponent>
-            <BottomNavigator />
-          </AppComponent>
-        </SafeAreaView>
-      </NavigationContainer>
+      </>
+
 
 
     );

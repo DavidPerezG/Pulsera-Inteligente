@@ -3,23 +3,25 @@ import { Text, TouchableOpacity, View } from 'react-native';
 import styled from 'styled-components/native';
 import { colors } from '../utils/colors';
 import Icon from 'react-native-vector-icons/AntDesign';
+import { useNavigation } from '@react-navigation/native';
 
 
 const ConfigScreen = () => {
+  const navigation = useNavigation();
   return (
     <View>
       <TitleContainer>
         <TitleText>Configuración</TitleText>
       </TitleContainer>
       <OptionsContainer>
-        <TouchableOpacity>
+        <TouchableOpacity onPress={() => { navigation.navigate('Settings', { screen: "ParamCorazon" }) }}>
           <OptionContainer>
             <SubText>Parametro seguro del corazon</SubText>
             <Icon name="right" size={20} color={'black'} />
           </OptionContainer>
         </TouchableOpacity>
         <Line />
-        <TouchableOpacity>
+        <TouchableOpacity onPress={() => { navigation.navigate('Settings', { screen: "ParamOxigeno" }) }}>
           <OptionContainer>
             <SubText>Parametro seguro de oxigeno en sangre</SubText>
             <Icon name="right" size={20} color={'black'} />
@@ -27,7 +29,7 @@ const ConfigScreen = () => {
         </TouchableOpacity>
 
         <Line />
-        <TouchableOpacity>
+        <TouchableOpacity >
 
           <OptionContainer>
             <SubText>Configurar zonas seguras de ubicación</SubText>
@@ -36,7 +38,7 @@ const ConfigScreen = () => {
         </TouchableOpacity>
 
         <Line />
-        <TouchableOpacity>
+        <TouchableOpacity onPress={() => { navigation.navigate('Settings', { screen: "ParamEdad" }) }}>
 
           <OptionContainer>
             <SubText>Rango de edad</SubText>

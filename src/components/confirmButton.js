@@ -1,16 +1,18 @@
-import { StyleSheet, Text, View } from 'react-native'
+import { StyleSheet, Text, TouchableOpacity, View, ActivityIndicator } from 'react-native'
 import styled from 'styled-components'
 import React from 'react'
+import { colors } from '../utils/colors'
 
-const ConfirmButton = () => {
+const ConfirmButton = (isLoading, callbackFunction) => {
   return (
-    <View>
+    <TouchableOpacity onPress={() => callbackFunction}>
       <Btn>
-        <Txt>
-          ACEPTAR
-        </Txt>
+        {isLoading == true ? <ActivityIndicator /> :
+          <Txt>
+            ACEPTAR
+          </Txt>}
       </Btn>
-    </View>
+    </TouchableOpacity>
   )
 }
 
@@ -19,16 +21,16 @@ const Btn = styled.View`
   align-content: center;
   justify-content: center;
   margin-top: 5%;
-  background-color: #27ee45;
+  background-color: ${colors.blue};
   width: 80%;
   height: 70px;
   border-radius: 5px;
   border-color: "#1c337c";
-  border-width: 3px;
+  border-width: 1px;
 `;
 const Txt = styled.Text`
   font-size: 15px;
-  color: black;
+  color: white;
   font-weight: bold;
   align-self: center;
 `;

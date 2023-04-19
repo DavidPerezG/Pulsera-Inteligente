@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, Text, TouchableOpacity } from 'react-native';
+import { View, Text, TouchableOpacity, Settings } from 'react-native';
 import styled from 'styled-components/native';
 import Icon from 'react-native-vector-icons/AntDesign';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
@@ -72,11 +72,11 @@ const BottomNavigator = () => {
           ),
         }}
       />
-      <Tab.Screen name="Settings" component={ConfigScreen}
+      <Tab.Screen name="Settings" component={SettingsNav}
         options={{
           tabBarLabel: 'Configuración',
           tabBarIcon: ({ color, size, focused }) => (
-            <TouchableOpacity onPress={() => { navigation.navigate('Settings') }}>
+            <TouchableOpacity onPress={() => { navigation.navigate('Settings', { screen: "Config" }) }}>
               <Icon name='setting' size={30} color={focused ? colors.blueDark : 'black'} />
 
             </TouchableOpacity>
@@ -88,7 +88,29 @@ const BottomNavigator = () => {
 
 
   );
+
+
 }
+
+
+function SettingsNav() {
+  return (
+    <Tab.Navigator
+      initialRouteName='Config'
+      screenOptions={{
+        headerShown: false,
+
+      }}
+    >
+      <Tab.Screen name="Config" component={ConfigScreen} />
+
+      <Tab.Screen name="ParamCorazon" component={ParametroCorazon} />
+      <Tab.Screen name="ParamEdad" component={ParametroEdad} />
+      <Tab.Screen name="ParamOxigeno" component={ParametroOxigeno} />
+    </Tab.Navigator>
+  );
+}
+
 
 {/* <NavigationOption>
         <Text>Inicio</Text>

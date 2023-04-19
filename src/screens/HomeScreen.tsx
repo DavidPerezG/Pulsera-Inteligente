@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { Dimensions, ScrollView, Text, View } from 'react-native';
 import {
   LineChart,
@@ -6,9 +6,30 @@ import {
 } from "react-native-chart-kit";
 import styled from 'styled-components/native';
 import { colors } from '../utils/colors';
-
+import { dataTest } from '../utils/data';
 
 const HomeScreen = () => {
+  const [data, setData] = useState(dataTest);
+
+  const getData = () => {
+    fetch('http://localhost:3000/api/tabladatos')
+      .then(response => response.json())
+      .then(data => {
+        console.log(data);
+        setData(data);
+      })
+      .catch(error => {
+        console.error(error);
+      });
+
+  }
+
+  useEffect(() => {
+    // getData();
+    console.log(data);
+  }, [])
+
+
   return (
     <ScrollView style={{ display: 'flex', height: '100%', flex: 1, margin: 10, marginBottom: 80 }}>
       <TitleContainer>
@@ -24,12 +45,11 @@ const HomeScreen = () => {
           datasets: [
             {
               data: [
-                Math.random() * 100,
-                Math.random() * 100,
-                Math.random() * 100,
-                Math.random() * 100,
-                Math.random() * 100,
-                Math.random() * 100
+                data[0].oxigenacion,
+                data[1].oxigenacion,
+                data[2].oxigenacion,
+
+
               ]
             }
           ]
@@ -69,12 +89,11 @@ const HomeScreen = () => {
           datasets: [
             {
               data: [
-                Math.random() * 100,
-                Math.random() * 100,
-                Math.random() * 100,
-                Math.random() * 100,
-                Math.random() * 100,
-                Math.random() * 100
+                data[0].frecuencia,
+                data[1].frecuencia,
+                data[2].frecuencia,
+
+
               ]
             }
           ]
@@ -82,7 +101,7 @@ const HomeScreen = () => {
         width={Dimensions.get("window").width * .96} // from react-native
         height={220}
         yAxisLabel=""
-        yAxisSuffix="o"
+        yAxisSuffix="f"
         yAxisInterval={1} // optional, defaults to 1
         chartConfig={{
           backgroundColor: `${colors.blueDark}`,
@@ -115,12 +134,11 @@ const HomeScreen = () => {
           datasets: [
             {
               data: [
-                Math.random() * 100,
-                Math.random() * 100,
-                Math.random() * 100,
-                Math.random() * 100,
-                Math.random() * 100,
-                Math.random() * 100
+                data[0].respiracion,
+                data[1].respiracion,
+                data[2].respiracion,
+
+
               ]
             }
           ]
@@ -128,7 +146,7 @@ const HomeScreen = () => {
         width={Dimensions.get("window").width * .96} // from react-native
         height={220}
         yAxisLabel=""
-        yAxisSuffix="o"
+        yAxisSuffix="r"
         yAxisInterval={1} // optional, defaults to 1
         chartConfig={{
           backgroundColor: `${colors.blue}`,

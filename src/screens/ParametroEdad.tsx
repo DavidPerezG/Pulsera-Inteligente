@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { View } from 'react-native';
 
 import ParameterContainer from '../components/parameterContainer';
@@ -6,13 +6,47 @@ import ParameterHeader from '../components/parameterHeader';
 import ConfirmButton from '../components/confirmButton';
 
 import styled from 'styled-components/native';
+import AsyncStorage from '@react-native-async-storage/async-storage';
+import showToast from '../utils/toast';
 
 const ParametroEdad = () => {
+  const [edad, setEdad] = useState('');
+  const [isLoading, setIsLoading] = useState(false);
+
+  const storeData = async () => {
+    setIsLoading(true);
+
+    try {
+      await AsyncStorage.setItem('@edad', edad);
+      showToast('Datos guardados correctamente', '');
+    } catch (e) {
+      // saving error
+    }
+    setIsLoading(false);
+
+  }
+
+  const getData = async () => {
+    try {
+      const edadVar = await AsyncStorage.getItem('@edad');
+      setEdad(edadVar || '0');
+    } catch (e) {
+      console.log(e);
+    }
+  }
+
+  useEffect(() => {
+    getData();
+
+  }, [])
+
   return (
     <View>
       <ParameterHeader headerTitle={'Parámetros - oxígeno'} />
       <ParameterContainer color='gray' iconName='calendar' containerText='Edad del usuario' />
-      <Input />
+      <Input onChangeText={(text) => {
+        setEdad(text);
+      }} />
       <ConfirmButton />
     </View>
 
